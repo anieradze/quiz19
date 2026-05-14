@@ -6,6 +6,12 @@ var logger = require('morgan');
 var connectDB = require('./db')
 const session = require('express-session');
 
+app.use(session({
+    secret: 'a-secure-secret',
+    resave: false,
+    saveUninitialized: false,
+}));
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
